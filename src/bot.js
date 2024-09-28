@@ -439,12 +439,6 @@ async function handleMessage(update) {
   const chatId = msg.chat.id;
   const userId = msg.from.id;
 
-  try {
-    if (!WHITELISTED_USERS.includes(userId)) {
-      await bot.sendMessage(chatId, 'Sorry, you are not authorized to use this bot.', {parse_mode: 'Markdown'});
-      return;
-    }
-
     const userLang = await getUserLanguage(userId);
 
     if (msg.photo) {
